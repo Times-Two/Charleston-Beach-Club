@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Careers - Charleston Beach Club | Application with Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <span>Charleston Beach Club</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="application.html" class="active">Careers</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Join Our Team</h1>
+            <p>We're looking for passionate individuals to join the Tema Harbour family</p>
+        </div>
+    </section>
+
+    <section class="application-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-progress">
+                    <div class="progress-step active" data-step="1">Personal Info</div>
+                    <div class="progress-step" data-step="2">Experience</div>
+                    <div class="progress-step" data-step="3">Position</div>
+                    <div class="progress-step" data-step="4">Review</div>
+                    <div class="progress-step" data-step="5">Payment</div>
+                </div>
+
+                <form id="applicationForm" action="https://formspree.io/f/mlgpygqr" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_subject" value="New Job Application - Charleston Beach Club">
+                    <input type="hidden" name="_next" value="thank-you.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- Hidden field to indicate payment verification (optional but useful) -->
+                    <input type="hidden" id="paymentVerified" name="paymentVerified" value="false">
+                    
+                    <!-- Step 1: Personal Information -->
+                    <div class="form-step active" id="step1">
+                        <h2>Personal Information</h2>
+                        <div class="form-group">
+                            <label for="firstName">Full Name *</label>
+                            <input type="text" id="firstName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Residential Address</label>
+                            <textarea id="address" name="address" rows="2" placeholder="Tema, Ghana"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob">
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn-next">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Experience -->
+                    <div class="form-step" id="step2">
+                        <h2>Work Experience</h2>
+                        <div class="form-group">
+                            <label for="experience">Years of Experience in Hospitality *</label>
+                            <select id="experience" name="experience" required>
+                                <option value="">Select years</option>
+                                <option value="0-1">0-1 years</option>
+                                <option value="1-3">1-3 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="5+">5+ years</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="previousCompany">Previous Employer (if any)</label>
+                            <input type="text" id="previousCompany" name="previousCompany">
+                        </div>
+                        <div class="form-group">
+                            <label for="skills">Relevant Skills *</label>
+                            <input type="text" id="skills" name="skills" placeholder="e.g., Customer Service, Food Preparation, Management" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="availability">Availability to Start *</label>
+                            <select id="availability" name="availability" required>
+                                <option value="">Select</option>
+                                <option value="Immediately">Immediately</option>
+                                <option value="Within 1 week">Within 1 week</option>
+                                <option value="Within 2 weeks">Within 2 weeks</option>
+                                <option value="Within 1 month">Within 1 month</option>
+                            </select>
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev">Previous</button>
+                            <button type="button" class="btn-next">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Position Preferences -->
+                    <div class="form-step" id="step3">
+                        <h2>Position Preferences</h2>
+                        <div class="form-group">
+                            <label for="position">Position Applying For *</label>
+                            <select id="position" name="position" required>
+                                <option value="">Select a position</option>
+                                <option value="Head Chef">Head Chef</option>
+                                <option value="Restaurant Manager">Restaurant Manager</option>
+                                <option value="Wait Staff">Wait Staff / Server</option>
+                                <option value="Kitchen Assistant">Kitchen Assistant</option>
+                                <option value="Bartender">Bartender</option>
+                                <option value="Dishwasher">Dishwasher</option>
+                                <option value="Host/Hostess">Host/Hostess</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="employmentType">Employment Type *</label>
+                            <select id="employmentType" name="employmentType" required>
+                                <option value="">Select</option>
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
+                                <option value="Weekend Only">Weekend Only</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="shiftPreference">Shift Preference</label>
+                            <select id="shiftPreference" name="shiftPreference">
+                                <option value="">Select</option>
+                                <option value="Morning">Morning (9 AM - 5 PM)</option>
+                                <option value="Evening">Evening (5 PM - 11 PM)</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="whyJoin">Why do you want to join Charleston Beach Club? *</label>
+                            <textarea id="whyJoin" name="whyJoin" rows="4" placeholder="Tell us why you're passionate about working with us..." required></textarea>
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev">Previous</button>
+                            <button type="button" class="btn-next">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Review -->
+                    <div class="form-step" id="step4">
+                        <h2>Review Your Application</h2>
+                        <div class="review-section">
+                            <h3>Personal Information</h3>
+                            <div id="reviewPersonal"></div>
+                        </div>
+                        <div class="review-section">
+                            <h3>Work Experience</h3>
+                            <div id="reviewExperience"></div>
+                        </div>
+                        <div class="review-section">
+                            <h3>Position Preferences</h3>
+                            <div id="reviewPosition"></div>
+                        </div>
+                        <div class="payment-note">
+                            <i class="fas fa-info-circle"></i> After review, you'll proceed to pay a non-refundable application fee of <strong>₵3,000 GHS</strong> before final submission.
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev">Previous</button>
+                            <button type="button" id="goToPaymentBtn" class="btn-submit">Proceed to Payment</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Payment & Submission -->
+                    <div class="form-step" id="step5">
+                        <h2>Application Fee Payment</h2>
+                        <div class="payment-card">
+                            <p><strong><i class="fas fa-mobile-alt"></i> Payment Instructions:</strong> To complete your application, you need to pay <strong class="amount-highlight">₵3,000 GHS</strong> via Mobile Money.</p>
+                            <div class="payment-detail">
+                                <i class="fas fa-phone"></i> <strong>MoMo Number:</strong> <span style="font-size:1.2rem;">0502705160 Stephen Quaicoe</span><br>
+                                <small class="instruction">(Network: MTN / Vodafone - Merchant Name: Charleston Beach Club)</small>
+                            </div>
+                            <div class="payment-detail">
+                                <strong>Amount to Pay:</strong> <span class="amount-highlight">₵3,000.00</span><br>
+                                <small>Reference: Use your Full Name as reference</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="momoName">MoMo Account Holder Name *</label>
+                            <input type="text" id="momoName" name="momoName" placeholder="Name used on mobile money account" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="transactionId">Transaction ID / Reference *</label>
+                            <input type="text" id="transactionId" name="transactionId" placeholder="Enter the transaction ID from your payment" required>
+                        </div>
+                        <div class="instruction" style="margin-bottom: 1rem;">
+                            <i class="fas fa-clock"></i> Please ensure you have made the payment of ₵3,000 before submitting. Your transaction ID will be verified.
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev">Previous</button>
+                            <button type="submit" id="finalSubmitBtn" class="btn-submit">Submit Application & Verify Payment</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Application Submitted Successfully!</h3>
+                    <p>Thank you for applying to join the Charleston Beach Club family!</p>
+                    <p>Payment of ₵3,000 received. We'll review your application and contact you within 3-5 business days.</p>
+                    <button onclick="window.location.href='index.html'" class="btn-primary">Return to Home</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Charleston Beach Club</h4>
+                    <p>Relax, dine, and enjoy the best beach experience in Tema.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="application.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> careers@charlestonbeach.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Tema, Ghana</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Charleston Beach Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Multi-step navigation + Payment enforcement (3000 GHS)
+        const steps = document.querySelectorAll('.form-step');
+        const progressSteps = document.querySelectorAll('.progress-step');
+        let currentStep = 0;
+        const totalSteps = steps.length;
+
+        function updateStepVisibility() {
+            steps.forEach((step, idx) => {
+                step.classList.toggle('active', idx === currentStep);
+            });
+            progressSteps.forEach((step, idx) => {
+                if (idx === currentStep) step.classList.add('active');
+                else step.classList.remove('active');
+            });
+        }
+
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < totalSteps - 1) {
+                    currentStep++;
+                    updateStepVisibility();
+                    // If we move to step 5 (payment) we might ensure payment fields are enabled
+                    if (currentStep === 4) {
+                        // do nothing extra
+                    }
+                }
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                updateStepVisibility();
+            }
+        }
+
+        function validateCurrentStep() {
+            const currentFormStep = steps[currentStep];
+            const requiredFields = currentFormStep.querySelectorAll('[required]');
+            let isValid = true;
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#d9534f';
+                    // show temporary error
+                    let err = field.parentElement.querySelector('.error-message');
+                    if (!err) {
+                        err = document.createElement('div');
+                        err.className = 'error-message';
+                        field.parentElement.appendChild(err);
+                    }
+                    err.innerText = 'This field is required';
+                    field.focus();
+                } else {
+                    field.style.borderColor = '#ddd';
+                    const existingErr = field.parentElement.querySelector('.error-message');
+                    if (existingErr && !field.value.trim()) {} else if(existingErr && field.value.trim()) existingErr.remove();
+                }
+            });
+            if (!isValid) return false;
+
+            // Special check for step4 (review) doesn't need extra validation but all good.
+            if (currentStep === 3) {
+                // build review content
+                buildReview();
+            }
+            return true;
+        }
+
+        function buildReview() {
+            const fullName = document.getElementById('firstName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value || 'Not provided';
+            const dob = document.getElementById('dob').value || 'Not provided';
+            const experience = document.getElementById('experience').options[document.getElementById('experience').selectedIndex]?.text || '';
+            const prevCompany = document.getElementById('previousCompany').value || 'None';
+            const skills = document.getElementById('skills').value;
+            const availability = document.getElementById('availability').options[document.getElementById('availability').selectedIndex]?.text || '';
+            const position = document.getElementById('position').options[document.getElementById('position').selectedIndex]?.text || '';
+            const empType = document.getElementById('employmentType').options[document.getElementById('employmentType').selectedIndex]?.text || '';
+            const shift = document.getElementById('shiftPreference').options[document.getElementById('shiftPreference').selectedIndex]?.text || 'Flexible';
+            const whyJoin = document.getElementById('whyJoin').value;
+
+            document.getElementById('reviewPersonal').innerHTML = `
+                <p><strong>Full Name:</strong> ${fullName}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Address:</strong> ${address}</p>
+                <p><strong>Date of Birth:</strong> ${dob}</p>
+            `;
+            document.getElementById('reviewExperience').innerHTML = `
+                <p><strong>Experience:</strong> ${experience}</p>
+                <p><strong>Previous Employer:</strong> ${prevCompany}</p>
+                <p><strong>Skills:</strong> ${skills}</p>
+                <p><strong>Availability:</strong> ${availability}</p>
+            `;
+            document.getElementById('reviewPosition').innerHTML = `
+                <p><strong>Position:</strong> ${position}</p>
+                <p><strong>Employment Type:</strong> ${empType}</p>
+                <p><strong>Shift Preference:</strong> ${shift}</p>
+                <p><strong>Why Join:</strong> ${whyJoin}</p>
+            `;
+        }
+
+        // Attach event listeners
+        document.querySelectorAll('.btn-next').forEach(btn => {
+            btn.addEventListener('click', nextStep);
+        });
+        document.querySelectorAll('.btn-prev').forEach(btn => {
+            btn.addEventListener('click', prevStep);
+        });
+
+        // Special: "Proceed to Payment" from review step (step4) -> go to step5 (payment)
+        const goToPaymentBtn = document.getElementById('goToPaymentBtn');
+        if (goToPaymentBtn) {
+            goToPaymentBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Validate step4 fields? The review step has no required fields itself but we ensure the whole form previous steps have data? Actually all required fields captured before.
+                // But we still validate the whole previous steps by checking required fields across step1-3? For safety:
+                let allPrevValid = true;
+                for(let i=0; i<=2; i++) {
+                    const stepDiv = steps[i];
+                    const reqs = stepDiv.querySelectorAll('[required]');
+                    reqs.forEach(f => {
+                        if(!f.value.trim()) allPrevValid = false;
+                    });
+                }
+                if(allPrevValid) {
+                    buildReview(); // rebuild review
+                    currentStep = 4; // go to payment step (index 4)
+                    updateStepVisibility();
+                } else {
+                    alert("Please complete all required fields in Personal Info, Experience and Position before proceeding to payment.");
+                    currentStep = 0;
+                    updateStepVisibility();
+                }
+            });
+        }
+
+        // Form submit handler: enforce payment details and mark paymentVerified
+        const form = document.getElementById('applicationForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate payment step fields: MoMo name and Transaction ID
+            const momoName = document.getElementById('momoName');
+            const transactionId = document.getElementById('transactionId');
+            let paymentValid = true;
+            if (!momoName.value.trim()) {
+                paymentValid = false;
+                momoName.style.borderColor = '#d9534f';
+                alert("Please enter the MoMo Account Holder Name.");
+                momoName.focus();
+            } else momoName.style.borderColor = '#ddd';
+            
+            if (!transactionId.value.trim()) {
+                paymentValid = false;
+                transactionId.style.borderColor = '#d9534f';
+                if(paymentValid === false) alert("Please enter a valid Transaction ID after paying ₵3,000.");
+                transactionId.focus();
+            } else transactionId.style.borderColor = '#ddd';
+
+            if (!paymentValid) return;
+
+            // Ensure user paid amount is 3000 (conceptually we trust but for demo)
+            const confirmPay = confirm(`Confirm you have paid exactly ₵3,000 to MoMo number 0502705160 Stephen Quaicoe? Your transaction ID: ${transactionId.value.trim()}. This fee is non-refundable.`);
+            if (!confirmPay) return;
+
+            // Set hidden payment verified flag to true
+            document.getElementById('paymentVerified').value = "true (₵3,000 paid)";
+            
+            // Additional: attach transaction details to form data to be sent
+            let momoNameInput = momoName.value;
+            let txId = transactionId.value;
+            
+            // Create a hidden field to ensure they're sent with form
+            let hiddenMomo = document.createElement('input');
+            hiddenMomo.type = 'hidden';
+            hiddenMomo.name = 'momopayer_name';
+            hiddenMomo.value = momoNameInput;
+            let hiddenTx = document.createElement('input');
+            hiddenTx.type = 'hidden';
+            hiddenTx.name = 'transaction_id';
+            hiddenTx.value = txId;
+            let hiddenAmount = document.createElement('input');
+            hiddenAmount.type = 'hidden';
+            hiddenAmount.name = 'payment_amount';
+            hiddenAmount.value = '3000 GHS';
+            form.appendChild(hiddenMomo);
+            form.appendChild(hiddenTx);
+            form.appendChild(hiddenAmount);
+            
+            // Submit via fetch to Formspree (or use original action)
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    // Hide form container, show success message
+                    document.querySelector('.form-container .form-progress').style.display = 'none';
+                    form.style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    alert('Submission error. Please check your details or contact support. Payment info was recorded but try again.');
+                }
+            }).catch(err => {
+                console.error(err);
+                alert('Network error. Ensure payment details are correct and try again.');
+            });
+        });
+
+        // Mobile menu toggle (basic)
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if(hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Helper: if any step has missing required fields, show better style
+        window.addEventListener('load', () => {
+            updateStepVisibility();
+        });
+    </script>
+</body>
+</html>
